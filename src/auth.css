@@ -1,0 +1,101 @@
+.auth-layout {
+  flex: 1;
+  background-image: url("/chirper.png");
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.auth-layout>form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0.5rem 0.25rem;
+
+  background: #fff;
+  border-radius: 0.15rem;
+}
+
+.notification {
+  color: #cf6487;
+  padding: 1rem;
+  max-width: 40ch;
+  font-size: 1.2rem;
+}
+
+.login-input {
+  margin-top: 0.25rem;
+  padding: 0.25rem;
+  max-width: 16rem;
+  font-size: 1.2rem;
+  border: 2px solid #49A;
+  border-radius: 0.5rem;
+}
+
+.auth-info {
+  font-size: 1.2rem;
+}
+
+.handle-input {
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  max-width: 16rem;
+  font-size: 1.5rem;
+  border: 2px solid #49A;
+  border-radius: 0.5rem;
+}
+
+.input-info.valid {
+  color: #64cf87;
+}
+.input-info.invalid {
+  color: #cf6487;
+}
+
+.handle-button {
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-top: 0.25rem;
+  border: none;
+  border-radius: 1rem;
+  background: #49A;
+  color: #f84;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.phrase-input {
+  margin-top: 0.25rem;
+  font-size: 1.2rem;
+  padding: 0.25rem;
+}
+
+.word-select {
+  background: #e0e0dd;
+  border: 2px solid #49A;
+  border-radius: 0.25rem;
+  padding: 0.25rem 1rem;
+  max-width: 8rem;
+  font-size: inherit;
+  margin: 0 0.25rem;
+}
+
+.confirm-wrapper {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.confirm-input {
+  padding: 0.25rem;
+  max-width: 12rem;
+  font-size: inherit;
+  margin: 0 0.25rem;
+  border: 2px solid #49A;
+  border-radius: 0.25rem;
+  background: #e0e0dd;
+}
+.confirm-input:disabled {
+  border: 2px solid #ccc;
+  background: #bbb;
+}

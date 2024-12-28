@@ -1,0 +1,98 @@
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Regular-BF654d990a3279a.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-RegularItalic-BF654d990a11f54.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 250;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Thin-BF654d990a32597.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 250;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-ThinItalic-BF654d990a24f62.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 260;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-ExtraLight-BF654d9909e41a1.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 260;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-ExtraLightItalic-BF654d990a363d3.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Light-BF654d990a3c0f6.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 300;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-LightItalic-BF654d990a01834.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Medium-BF654d9909e2529.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 500;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-MediumItalic-BF654d990a246aa.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-SemiBold-BF654d990a3d889.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 600;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-SemiBoldItalic-BF654d990a21059.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Bold-BF654d9909ed277.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 700;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-BoldItalic-BF654d990a340f9.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-Black-BF654d99091e5a2.woff') format('woff');
+}
+@font-face {
+    font-family: '';
+    font-style: italic;
+    font-weight: 900;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107550/BRSegma-BlackItalic-BF654d9909bba02.woff') format('woff');
+}
+
+
