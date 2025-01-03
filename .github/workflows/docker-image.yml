@@ -28,7 +28,7 @@ jobs:
     - name: Tag the Docker image
       run: |
         REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-        docker tag fu ghcr.io/${REPO_NAME}/chirper
+        docker tag chirper ghcr.io/${REPO_NAME}/chirper
     - name: Push the Docker image
       run: |
         REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
