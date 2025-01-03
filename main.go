@@ -5,10 +5,32 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+  "os"
+  "strconv"
 
 	"github.com/gin-gonic/gin"
 	"io/fs"
+
+	"github.com/joho/godotenv"
 )
+
+func init() {
+	if err := godotenv.Load(); err != nil { /* No .env file */
+	}
+}
+
+func LoadPort() int {
+	defaultPort := 3000
+	portStr, exists := os.LookupEnv("PORT")
+	if !exists {
+		return defaultPort
+	}
+	port, err := strconv.Atoi(portStr)
+	if err != nil {
+		return defaultPort
+	}
+	return port
+}
 
 //go:embed dist
 var staticFiles embed.FS
