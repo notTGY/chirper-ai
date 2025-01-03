@@ -1,4 +1,4 @@
-import "./styles.css"
+// import './styles.css'
 import { authLayout } from './auth.js'
 
 let POSTS

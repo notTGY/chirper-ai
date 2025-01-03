@@ -1,4 +1,4 @@
-import './auth.css'
+//import './auth.css'
 
 const checkHandle = async (handle) => {
   if (handle) return true

@@ -1,5 +1,5 @@
-@import url('./public/br-segma');
-@import url('./public/br-sonoma');
+@import url('./br-segma.css');
+@import url('./br-sonoma.css');
 
 body {
   display: flex;
