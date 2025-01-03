@@ -36,7 +36,7 @@ func LoadPort() int {
 var staticFiles embed.FS
 
 func main() {
-	port := 3000
+	port := LoadPort()
 
 	mux := http.NewServeMux()
 
