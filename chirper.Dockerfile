@@ -24,5 +24,6 @@ COPY --from=build-stage /app/migrations /app/migrations
 RUN mkdir /app/db && chmod -R 777 /app/db && cd /app
 
 ENV PORT=80
+ENV GIN_MODE=release
 
 ENTRYPOINT ["/bin/sh", "-c", "cd /app && ./server"]
