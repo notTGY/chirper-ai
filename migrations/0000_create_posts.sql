@@ -15,5 +15,3 @@ CREATE TABLE `posts` (
 	`text` text NOT NULL,
   FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE cascade ON DELETE cascade
 );
---> statement-breakpoint
-CREATE UNIQUE INDEX `posts_user_id_unique` ON `posts` (`user_id`);
