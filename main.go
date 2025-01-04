@@ -2,16 +2,18 @@ package main
 
 import (
 	"embed"
-	"fmt"
 	"log"
+  "fmt"
 	"net/http"
   "os"
   "strconv"
-
-	"github.com/gin-gonic/gin"
 	"io/fs"
 
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+
+	"github.com/nottgy/chirper-ai/migrator"
+	"github.com/nottgy/chirper-ai/routes"
 )
 
 func init() {
@@ -35,20 +37,7 @@ func LoadPort() int {
 //go:embed dist
 var staticFiles embed.FS
 
-func main() {
-	port := LoadPort()
-
-	mux := http.NewServeMux()
-
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-
-	mux.Handle("/api/", http.StripPrefix("/api", r))
-
+func registerStatic(mux *http.ServeMux) {
 	staticFS := fs.FS(staticFiles)
 	staticContent, err := fs.Sub(staticFS, "dist")
 	if err != nil {
@@ -56,8 +45,25 @@ func main() {
 	}
 	fileServer := http.FileServer(http.FS(staticContent))
 	mux.Handle("/", fileServer)
+}
 
-	err = http.ListenAndServe(fmt.Sprintf(":%d", port), mux)
+func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	migrator.Migrate()
+
+	port := LoadPort()
+
+	mux := http.NewServeMux()
+
+	r := gin.Default()
+	r.GET("/ping", routes.Ping)
+	r.GET("/users", routes.Users)
+	r.GET("/posts", routes.Posts)
+
+	mux.Handle("/api/", http.StripPrefix("/api", r))
+  registerStatic(mux)
+
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), mux)
 	if err != nil {
 		log.Println(err)
 	}

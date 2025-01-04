@@ -204,6 +204,7 @@ const onload = async ({ useCache }) => {
   LIKES =
     (localStorage.getItem('likes') || '')
       .split(',')
+      .filter(s => s.length > 0)
       .map(Number)
 
   const url = new URL(window.location.href || '')
@@ -224,9 +225,9 @@ const onload = async ({ useCache }) => {
     const userId = params.get('user')
 
     if (!useCache) {
-      let res = await fetch('/posts.json')
+      let res = await fetch('/api/posts')
       const postsData = await res.json()
-      res = await fetch('/users.json')
+      res = await fetch('/api/users')
       const usersData = await res.json()
       USERS_DATA = usersData
       POSTS = postsData.map(d => cleanChirp(d, USERS_DATA))
@@ -268,9 +269,9 @@ const onload = async ({ useCache }) => {
     }
   } else {
     if (!useCache) {
-      let res = await fetch('/posts.json')
+      let res = await fetch('/api/posts')
       const postsData = await res.json()
-      res = await fetch('/users.json')
+      res = await fetch('/api/users')
       const usersData = await res.json()
       USERS_DATA = usersData
       POSTS = postsData.map(d => cleanChirp(d, USERS_DATA))
