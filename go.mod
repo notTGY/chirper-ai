@@ -4,7 +4,9 @@ go 1.23.3
 
 require (
 	github.com/gin-gonic/gin v1.10.0
+	github.com/hupe1980/go-huggingface v0.0.15
 	github.com/joho/godotenv v1.5.1
+	golang.org/x/exp v0.0.0-20231108232855-2478ac86f678
 	modernc.org/sqlite v1.34.4
 )
 

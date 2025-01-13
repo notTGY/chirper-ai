@@ -16,6 +16,7 @@ type Post struct {
   Date string `json:"date"`
   Text string `json:"text"`
   Lang string `json:"lang"`
+  UserId int `json:"user_id"`
 }
 func Posts(c *gin.Context) {
   ctx, cancel := context.WithTimeout(
@@ -37,7 +38,7 @@ func Posts(c *gin.Context) {
 
   rows, err := db.QueryContext(
     ctx,
-    `SELECT id, date, text, lang FROM posts
+    `SELECT id, date, text, lang, user_id FROM posts
     ORDER BY date DESC`,
   )
 	defer rows.Close()
@@ -49,15 +50,15 @@ func Posts(c *gin.Context) {
   var posts []Post
 
 	for rows.Next() {
-    var id int
+    var id, user_id int
     var date, text, lang string
-		err = rows.Scan(&id, &date, &text, &lang)
+		err = rows.Scan(&id, &date, &text, &lang, &user_id)
     if err != nil {
       log.Print(err)
       c.Status(http.StatusInternalServerError)
       return
 		}
-    post := Post{id, date, text, lang}
+    post := Post{id, date, text, lang, user_id}
     posts = append(posts, post)
 	}
 

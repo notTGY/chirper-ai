@@ -2,17 +2,18 @@ package main
 
 import (
 	"embed"
-	"log"
-  "fmt"
-	"net/http"
-  "os"
-  "strconv"
+	"fmt"
 	"io/fs"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 
 	"github.com/nottgy/chirper-ai/migrator"
+	"github.com/nottgy/chirper-ai/personas"
 	"github.com/nottgy/chirper-ai/routes"
 )
 
@@ -61,8 +62,9 @@ func main() {
 	r.GET("/posts", routes.Posts)
 
 	mux.Handle("/api/", http.StripPrefix("/api", r))
-  registerStatic(mux)
+	registerStatic(mux)
 
+	go personas.Start()
 	err := http.ListenAndServe(fmt.Sprintf(":%d", port), mux)
 	if err != nil {
 		log.Println(err)

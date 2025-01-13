@@ -75,7 +75,7 @@ const randomColor = (id, lIncrement = 0) => {
   return `hsl(${h},${s}%,${l}%)`;
 }
 
-const Profile = ({id, name, bio}) => {
+const Profile = ({id, name, bio, user_id}) => {
   const container = document.createElement('div')
   container.className = 'profile'
   const card = document.createElement('div')
@@ -86,8 +86,8 @@ const Profile = ({id, name, bio}) => {
   const Pic = document.createElement('div')
   Pic.innerHTML = PIC_SVG
   Pic.className = 'profile-pic'
-  Pic.style.background = randomColor(id)
-  Pic.style.color = randomColor(id, 10)
+  Pic.style.background = randomColor(user_id)
+  Pic.style.color = randomColor(user_id, 10)
 
   const User = document.createElement('h2')
   User.innerText = name
@@ -116,12 +116,13 @@ const Profile = ({id, name, bio}) => {
 
 const Chirp = ({
     id,
-    userId,
+    user_id,
     text,
     date,
     author,
     lang,
 }) => {
+  const userId = USERS_DATA.find(u => u.user_id == user_id).id
   const container = document.createElement('div')
   container.className = 'chirp'
   container.setAttribute('data-id', id)
@@ -129,8 +130,8 @@ const Chirp = ({
   const Pic = document.createElement('div')
   Pic.innerHTML = PIC_SVG
   Pic.className = 'chirp-pic'
-  Pic.style.background = randomColor(userId)
-  Pic.style.color = randomColor(userId, 10)
+  Pic.style.background = randomColor(user_id)
+  Pic.style.color = randomColor(user_id, 10)
 
   const url = new URL(window.location.href || '')
   const params = new URLSearchParams(url.search)
@@ -181,16 +182,16 @@ const Chirp = ({
 
 const cleanChirp = ({
   id,
-  userId = 'tgy',
+  user_id = 0,
   text = '',
   date = 'date unknown',
   lang = 'en',
 }, usersData) => {
-  const userData = usersData.find(p => p.id === userId)
+  const userData = usersData.find(p => p.user_id === user_id)
   const author = userData.name
   return {
     id,
-    userId,
+    user_id,
     date,
     text,
     author,
@@ -233,8 +234,9 @@ const onload = async ({ useCache }) => {
       POSTS = postsData.map(d => cleanChirp(d, USERS_DATA))
     }
 
-    const posts = POSTS.filter(p => p.userId === userId)
-    const userData = USERS_DATA.find(p => p.id === userId)
+    const userData = USERS_DATA.find(u => u.id === userId)
+    const user_id = userData.user_id
+    const posts = POSTS.filter(p => p.user_id === user_id)
 
 
     const root = document.getElementById('root')

@@ -15,6 +15,7 @@ type User struct {
   Tag string `json:"id"`
   Name string `json:"name"`
   Bio string `json:"bio"`
+  UserId int `json:"user_id"`
 }
 func Users(c *gin.Context) {
   ctx, cancel := context.WithTimeout(
@@ -36,7 +37,7 @@ func Users(c *gin.Context) {
 
   rows, err := db.QueryContext(
     ctx,
-    `SELECT tag, name, bio FROM users`,
+    `SELECT tag, name, bio, id FROM users`,
   )
 	defer rows.Close()
 	if err != nil {
@@ -47,14 +48,15 @@ func Users(c *gin.Context) {
   var users []User
 
 	for rows.Next() {
+    var user_id int
     var tag, name, bio string
-		err = rows.Scan(&tag, &name, &bio)
+		err = rows.Scan(&tag, &name, &bio, &user_id)
     if err != nil {
       log.Print(err)
       c.Status(http.StatusInternalServerError)
       return
 		}
-    user := User{tag, name, bio}
+    user := User{tag, name, bio, user_id}
     users = append(users, user)
 	}
 
